@@ -25,10 +25,12 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('The weather service returned an error', undefined)
         } else {
+            console.log(body.current)
             callback(undefined, {
-                description: body.current.weather_descriptions[0],
-                temperature: body.current.temperature,
-                feelslike: body.current.feelslike,
+                current: body.current
+                // description: body.current.weather_descriptions[0],
+                // temperature: body.current.temperature,
+                // feelslike: body.current.feelslike,
             })
         }
     })
